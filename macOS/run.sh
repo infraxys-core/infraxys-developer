@@ -3,7 +3,7 @@
 set -euo pipefail;
 
 INFRAXYS_ROOT_DIR="/opt/infraxys/developer-dev";
-VERSION="$(cat VERSION)";
+VERSION="$(cat ../VERSION)";
 IMAGE="quay.io/jeroenmanders/infraxys-developer-installer:$VERSION";
 
 if [ -d "$INFRAXYS_ROOT_DIR" ]; then
