@@ -3,7 +3,7 @@
 set -euo pipefail;
 
 VERSION="$(cat ../VERSION)";
-IMAGE="quay.io/infraxys-core/infraxys-developer-installer:$VERSION";
+IMAGE="quay.io/jeroenmanders/infraxys-developer-installer:$VERSION";
 
 docker pull $IMAGE;
 docker run -it --rm $IMAGE
