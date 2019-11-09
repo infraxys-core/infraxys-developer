@@ -12,6 +12,7 @@ if [ -d "$INFRAXYS_ROOT_DIR" ]; then
 fi;
 
 mkdir -p "$INFRAXYS_ROOT_DIR";
+chown 2000:2000 "$INFRAXYS_ROOT_DIR";
 
 docker pull $IMAGE;
 docker run -it --rm \
