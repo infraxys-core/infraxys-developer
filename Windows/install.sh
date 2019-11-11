@@ -33,7 +33,6 @@ echo "Launching installer now";
 sudo docker run -it --rm \
   -e "VERSION=$VERSION" \
   -e "INFRAXYS_ROOT_DIR=$INFRAXYS_ROOT_DIR" \
-  -e "INSTALL_MODE=LINUX" \
   -v "$INFRAXYS_ROOT_DIR":/infraxys-root:rw \
   $IMAGE
 

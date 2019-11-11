@@ -32,15 +32,12 @@ Updates can be pulled manually if a connection between GitHub and Infraxys Enter
 
 ## Installation
 
-### Prerequisites
-
-At least Docker 19.03.1 and Docker Compose 1.23.2 are required to use Infraxys Developer. 
-See the [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installation instructions. 
-
 ### Installation type
 
 Select your installation type:
 - [macOS or Linux](macOS-and-Linux/README.md)
+
+If you need to restart the installation, then make sure the specified directory is empty.
 
 ### Using Infraxys developer
 
