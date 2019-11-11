@@ -20,11 +20,13 @@ At least Docker 19.03.1 and Docker Compose 1.23.2 are required to use Infraxys D
 See the [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installation instructions. 
 
 ### Installation
+
+The installation uses sudo which means you might be prompted to enter your password.  
 Start Infraxys Developer installation from the macOS-and-Linux directory:
 ```bash
-sudo ./install.sh;
+./install.sh;
 ```
 
-You will be asked for the Infraxys root-directory and for a port where the application will be available. 
-The Infraxys-url will be displayed after the installation. It should take no more then 30 seconds for the Infraxys containers to start. 
+You will be asked for the Infraxys root-directory and for a port where the application will be listening. 
+The Infraxys-url will be displayed after the installation. It should take no more then 60 seconds for the Infraxys containers to start. 
 

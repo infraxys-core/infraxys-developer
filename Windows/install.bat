@@ -34,7 +34,7 @@ echo   All files will be stored here.
 echo   !!! Make sure this directory can be mounted by Docker and that it is empty.
 set "batchPath=%~dp0"
 
-set /p INFRAXYS_ROOT_DIR="Directory name: "
+set /p INFRAXYS_ROOT_DIR="Directory name: [C:\Infraxys]" || set "INFRAXYS_ROOT_DIR=C:\Infraxys"
 
 >nul 2>nul dir /b /a "%INFRAXYS_ROOT_DIR%\*" | >nul findstr "^" && (echo Directory %INFRAXYS_ROOT_DIR% is not empty. Not making any changes to it. && goto :EXIT)
 
@@ -54,3 +54,4 @@ cd "%INFRAXYS_ROOT_DIR%\bin";
 up.bat;
 
 :EXIT
+set /p a="Press enter to continue"

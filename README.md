@@ -36,6 +36,7 @@ Updates can be pulled manually if a connection between GitHub and Infraxys Enter
 
 Select your installation type:
 - [macOS or Linux](macOS-and-Linux/README.md)
+- [Windows](Windows/README.md)
 
 If you need to restart the installation, then make sure the specified directory is empty.
 
