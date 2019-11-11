@@ -1,5 +1,7 @@
 # Installation on macOS and Linux
 
+Infraxys Developer has been tested on macOS and Ubuntu 18.04.
+
 ## Instructions
 
 Download or clone https://github.com/infraxys-core/infraxys-developer to your local machine:
@@ -23,6 +25,13 @@ See the [Docker](https://docs.docker.com/install/) and [Docker Compose](https://
 
 The installation uses sudo which means you might be prompted to enter your password.  
 Start Infraxys Developer installation from the macOS-and-Linux directory:
+
+#### Linux 
+```bash
+sudo ./install.sh; 
+```
+
+#### macOS
 ```bash
 ./install.sh;
 ```

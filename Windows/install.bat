@@ -50,7 +50,7 @@ endlocal
 docker pull %IMAGE%
 docker run -it --rm -e "INSTALL_MODE=WINDOWS" -e "VERSION=%VERSION%" -e "INFRAXYS_ROOT_DIR=%INFRAXYS_ROOT_DIR%" -v %INFRAXYS_ROOT_DIR%:/infraxys-root:rw %IMAGE%
 
-cd "%INFRAXYS_ROOT_DIR%\bin";
+cd /d "%INFRAXYS_ROOT_DIR%\bin";
 up.bat;
 
 :EXIT
