@@ -53,17 +53,4 @@ docker run -it --rm -e "INSTALL_MODE=WINDOWS" -e "VERSION=%VERSION%" -e "INFRAXY
 cd "%INFRAXYS_ROOT_DIR%\bin";
 up.bat;
 
-goto :EXIT
-
-username="$(id -un)";
-groupname="$(id -gn)";
-
-echo "Setting owner of Infraxys files to $username:$groupname";
-chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
-
-cd "$INFRAXYS_ROOT_DIR/bin";
-./up.sh;
-
 :EXIT
-set /p a="Press enter to continue"
-
