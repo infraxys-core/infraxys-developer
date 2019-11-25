@@ -18,7 +18,7 @@ You can re-run install.sh any time, but the specified directory cannot exist or 
 
 ### Prerequisites
 
-At least Docker 19.03.1 and Docker Compose 1.23.2 are required to use Infraxys Developer. 
+At least Docker 19.03.1 and Docker Compose 1.24.1 are required to use Infraxys Developer. 
 See the [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installation instructions. 
 
 ### Installation

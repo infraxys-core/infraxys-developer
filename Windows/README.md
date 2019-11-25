@@ -9,7 +9,7 @@ git clone https://github.com/infraxys-core/infraxys-developer.git
 
 ### Prerequisites
 
-At least Docker 19.03.1 and Docker Compose 1.23.2 are required to use Infraxys Developer. 
+At least Docker 19.03.1 and Docker Compose 1.24.1 are required to use Infraxys Developer. 
 See [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/) 
 
 ### Installation

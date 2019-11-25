@@ -32,6 +32,8 @@ Updates can be pulled manually if a connection between GitHub and Infraxys Enter
 
 ## Installation
 
+> Infraxys Developer uses https on localhost. If this blocks access in Chrome, then you can open url `chrome://flags/#allow-insecure-localhost` and enable `chrome://flags/#allow-insecure-localhost`. 
+
 ### Installation type
 
 Select your installation type:
