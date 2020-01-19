@@ -51,9 +51,11 @@ echo "Retrieving localhost certificate.";
 docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
 
 if [ "$(uname)" == "Darwin" ]; then
+  echo "Add localhost certificate to the System chain.";
   sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain localhost.crt;
   rm localhost.crt;
 else
+  echo "Copying the localhost certificate to the ca-certificates directory.";
   cp localhost.crt /usr/local/share/ca-certificates/infraxys-localhost.crt;
   update-ca-certificates;
 fi;
