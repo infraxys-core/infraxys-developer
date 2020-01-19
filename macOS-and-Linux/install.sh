@@ -43,11 +43,12 @@ groupname="$(id -gn)";
 echo "Setting owner of Infraxys files to $username:$groupname";
 sudo chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
 
-echo "Retrieving localhost certificate.";
-docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
 
 cd "$INFRAXYS_ROOT_DIR/bin";
 ./up.sh;
+
+echo "Retrieving localhost certificate.";
+docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
 
 if [ "$(uname)" == "Darwin" ]; then
   sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain localhost.crt;
