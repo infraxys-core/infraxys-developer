@@ -46,6 +46,9 @@ sudo chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
 echo "Retrieving localhost certificate.";
 docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
 
+cd "$INFRAXYS_ROOT_DIR/bin";
+./up.sh;
+
 if [ "$(uname)" == "Darwin" ]; then
   sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain localhost.crt;
   rm localhost.crt;
@@ -53,6 +56,3 @@ else
   cp localhost.crt /usr/local/share/ca-certificates/infraxys-localhost.crt;
   update-ca-certificates;
 fi;
-
-cd "$INFRAXYS_ROOT_DIR/bin";
-./up.sh;
