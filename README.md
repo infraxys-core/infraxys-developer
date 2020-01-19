@@ -5,7 +5,7 @@ Docker and Docker Compose are used to run the containers.
 
 # Usage
 
-Create modules with packets and roles using GitHub repositories and share them with others.
+Create modules with packets, roles and environments using GitHub repositories and share them with others.
  
 ## Standalone
 

@@ -14,7 +14,7 @@ See [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windo
 
 ### Installation
 
-Start the installation by run install.bat from the Windows directory of this repository.
+Start the installation by running install.bat from the Windows directory of this repository.
 
 Leveraged privileges are required for the installation.  
 
