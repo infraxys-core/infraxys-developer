@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -eu;
+set -e;
 
 echo "Please enter the root directory for Infraxys."
 echo "  All files will be stored here."
