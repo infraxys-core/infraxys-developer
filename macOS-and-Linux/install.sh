@@ -45,6 +45,10 @@ sudo chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
 
 
 cd "$INFRAXYS_ROOT_DIR/bin";
+
+. ./variables;
+docker-compose -f stack.yml pull;
+
 ./up.sh;
 
 echo "Retrieving localhost certificate.";
