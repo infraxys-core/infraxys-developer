@@ -6,9 +6,10 @@ echo "Please enter the root directory for Infraxys."
 echo "  All files will be stored here."
 echo "  !!! Make sure this directory can be mounted by Docker and that it is empty."
 
-read -p "Directory name: [/opt/infraxys/infraxys-developer]: " INFRAXYS_ROOT_DIR;
-
-INFRAXYS_ROOT_DIR="${INFRAXYS_ROOT_DIR:-/opt/infraxys/infraxys-developer}";
+if [ -z "$INFRAXYS_ROOT_DIR" ]; then
+  read -p "Directory name: [/opt/infraxys/infraxys-developer]: " INFRAXYS_ROOT_DIR;
+  INFRAXYS_ROOT_DIR="${INFRAXYS_ROOT_DIR:-/opt/infraxys/infraxys-developer}";
+fi;
 
 if [ -d "$INFRAXYS_ROOT_DIR" -a -n "$(ls -A "$INFRAXYS_ROOT_DIR" > /dev/null 2>&1)" ]; then
   echo "Directory $INFRAXYS_ROOT_DIR is not empty. Not making any changes to it.";
@@ -34,6 +35,9 @@ sudo docker run -it --rm \
   -e "VERSION=$VERSION" \
   -e "INFRAXYS_ROOT_DIR=$INFRAXYS_ROOT_DIR" \
   -e "INSTALL_MODE=LINUX" \
+  -e "INFRAXYS_PORT=$INFRAXYS_PORT" \
+  -e "INFRAXYS_USERNAME=$INFRAXYS_USERNAME" \
+  -e "INFRAXYS_FULLNAME=$INFRAXYS_FULLNAME" \
   -v "$INFRAXYS_ROOT_DIR":/infraxys-root:rw \
   $IMAGE
 
