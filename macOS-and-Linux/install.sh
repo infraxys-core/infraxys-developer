@@ -29,7 +29,7 @@ sudo chmod -R a+w "$INFRAXYS_ROOT_DIR";
 
 echo "Launching installer now";
 
-# docker pull $IMAGE;
+docker pull $IMAGE;
 sudo docker run -it --rm \
   -e "VERSION=$VERSION" \
   -e "INFRAXYS_ROOT_DIR=$INFRAXYS_ROOT_DIR" \
