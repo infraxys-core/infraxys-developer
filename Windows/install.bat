@@ -47,6 +47,9 @@ setlocal enableextensions
 md %INFRAXYS_ROOT_DIR%
 endlocal
 
+echo Creating network 'infraxys-run'
+docker network create -d bridge -o "com.docker.network.bridge.name"="infraxys-run0" infraxys-run
+
 docker pull %IMAGE%
 docker run -it --rm -e "INSTALL_MODE=WINDOWS" -e "VERSION=%VERSION%" -e "INFRAXYS_ROOT_DIR=%INFRAXYS_ROOT_DIR%" -v %INFRAXYS_ROOT_DIR%:/infraxys-root:rw %IMAGE%
 

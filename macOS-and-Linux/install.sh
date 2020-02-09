@@ -28,6 +28,9 @@ sudo mkdir -p "$INFRAXYS_ROOT_DIR/data/mysql";
 sudo chown -R 2000:2000 "$INFRAXYS_ROOT_DIR";
 sudo chmod -R a+w "$INFRAXYS_ROOT_DIR";
 
+echo "Creating network 'infraxys-run'."
+docker network create -d bridge -o "com.docker.network.bridge.name"="infraxys-run0" infraxys-run;
+
 echo "Launching installer now";
 
 docker pull $IMAGE;
