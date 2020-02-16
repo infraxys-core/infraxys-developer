@@ -37,5 +37,17 @@ sudo ./install.sh;
 ```
 
 You will be asked for the Infraxys root-directory and for a port where the application will be listening. 
-The Infraxys-url will be displayed after the installation. It should take no more then 60 seconds for the Infraxys containers to start. 
+The Infraxys-url will be displayed after the installation. It should take no more then 60 seconds for the Infraxys containers to start.
+
+Open your webbrowser and point it to https://localhost:<port you provided above>.   
+
+It will take a minute or two before the logging completes. The reason is that a number of modules is being pulled from the internet.
+
+You can follow this pull-process by tailing the Docker logs of the Tomcat-container:  
+
+```bash
+# execute in a terminal:
+docker logs -f infraxys-developer-tomcat;
+```
+ 
 

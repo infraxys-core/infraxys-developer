@@ -47,5 +47,5 @@ If you need to restart the installation, then make sure the specified directory 
 Several modules are already enabled in this clean installation. 
 If you want to start creating resources in your AWS account, then there's some extra configuration required.
 
-See the AWS-core module for details.
+Follow some examples from [Infraxys by example](https://github.com/infraxys-modules/infraxys-by-example) to get started.
 
