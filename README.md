@@ -44,8 +44,18 @@ If you need to restart the installation, then make sure the specified directory 
 
 ### Using Infraxys developer
 
+You will need to do the following to have Infraxys fully up-and-running:
+- Open the Utils-slider at the right.
+- Drag environment "Infraxys system environment" from gitHub.com -> infraxys-modules -> infraxys-core -> master -> environments and drop it on the root-project in the left project-tree (actually any project is OK).
+- Click on the environment. You will see the Infraxys-container. This container needs to be shared with every environment.
+- Open the "Included containers"-tab of the root-project
+- Drag the Infraxys container from the "Infraxys system environment" into the top-left table.
+
+We're all set to start using Infraxys.
+
 Several modules are already enabled in this clean installation. 
 If you want to start creating resources in your AWS account, then there's some extra configuration required.
 
 Follow some examples from [Infraxys by example](https://github.com/infraxys-modules/infraxys-by-example) to get started.
+This module should already be in your modules-list.
 
