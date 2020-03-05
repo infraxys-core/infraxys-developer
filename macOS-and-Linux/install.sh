@@ -60,6 +60,9 @@ docker-compose -f stack.yml pull;
 
 ./up.sh;
 
+docker pull quay.io/jeroenmanders/infraxys-runner:$VERSION
+docker pull quay.io/jeroenmanders/infraxys-provisioning-server:ubuntu-full-18.04-latest;
+
 echo "Retrieving localhost certificate.";
 docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
 

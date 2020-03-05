@@ -50,4 +50,5 @@ You can follow this pull-process by tailing the Docker logs of the Tomcat-contai
 docker logs -f infraxys-developer-tomcat;
 ```
  
+Continue setup from ["Using Infraxys developer"](https://github.com/infraxys-core/infraxys-developer#using-infraxys-developer).
 
