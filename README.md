@@ -59,3 +59,21 @@ If you want to start creating resources in your AWS account, then there's some e
 Follow some examples from [Infraxys by example](https://github.com/infraxys-modules/infraxys-by-example) to get started.
 This module should already be in your modules-list.
 
+
+## Decomissioning Infraxys Developer
+
+Removing Infraxys Developer involves stopping and removing Docker containers and removing the directory that you specified during installation:
+
+`docker ps | grep infraxys-developer;`
+for every container:
+```bash
+docker stop <container_name>;
+docker rm <container_name>;
+```
+
+Now remove the Infraxys directory. 
+
+## Re-install of Infraxys Developer
+
+This can be done by first decomissioning and then re-installing as described above.
+If you want to keep the data and use it after re-installation, then remove all subdirectories except "data". This instead of removing the whole Infraxys directory.
