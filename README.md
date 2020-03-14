@@ -73,7 +73,7 @@ docker rm <container_name>;
 
 Now remove the Infraxys directory. 
 
-## Re-install of Infraxys Developer
+## Re-installing Infraxys Developer
 
 This can be done by first decomissioning and then re-installing as described above.
 If you want to keep the data and use it after re-installation, then remove all subdirectories except "data". This instead of removing the whole Infraxys directory.
