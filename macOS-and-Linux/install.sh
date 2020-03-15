@@ -55,7 +55,7 @@ sudo chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
 
 cd "$INFRAXYS_ROOT_DIR/bin";
 
-. ./variables;
+. "$INFRAXYS_ROOT_DIR/config/variables";
 docker-compose -f stack.yml pull;
 
 ./up.sh;
