@@ -24,6 +24,7 @@ if [ -d "$INFRAXYS_ROOT_DIR" -a -n "$(ls -A "$INFRAXYS_ROOT_DIR" > /dev/null 2>&
 fi;
 
 VERSION="$(cat ../VERSION)";
+
 IMAGE="quay.io/jeroenmanders/infraxys-developer-installer:$VERSION";
 
 echo "==="
@@ -42,7 +43,10 @@ fi;
 
 echo "Launching installer now";
 
-docker pull $IMAGE;
+if [ "$NO_PULL" != "true" ]; then
+    docker pull $IMAGE;
+fi;
+
 sudo docker run -it --rm \
     -e "VERSION=$VERSION" \
     -e "INFRAXYS_ROOT_DIR=$INFRAXYS_ROOT_DIR" \
@@ -50,6 +54,8 @@ sudo docker run -it --rm \
     -e "INFRAXYS_PORT=$INFRAXYS_PORT" \
     -e "INFRAXYS_USERNAME=$INFRAXYS_USERNAME" \
     -e "INFRAXYS_FULLNAME=$INFRAXYS_FULLNAME" \
+    -e "CONTAINER_PREFIX=$CONTAINER_PREFIX" \
+    -e "TOMCAT_IMAGE_VERSION=$TOMCAT_IMAGE_VERSION" \
     -v "$INFRAXYS_ROOT_DIR":/infraxys-root:rw \
     $IMAGE
 
@@ -62,22 +68,27 @@ sudo chown -R "$username":"$groupname" "$INFRAXYS_ROOT_DIR";
 cd "$INFRAXYS_ROOT_DIR/bin";
 
 . "$INFRAXYS_ROOT_DIR/config/variables";
-docker-compose -f stack.yml pull;
-
-./up.sh;
-
-docker pull quay.io/jeroenmanders/infraxys-runner:$VERSION
-docker pull quay.io/jeroenmanders/infraxys-provisioning-server:ubuntu-full-18.04-latest;
-
-echo "Retrieving localhost certificate.";
-docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
-
-if [ "$(uname -s)" == "Darwin" ]; then
-    echo "Add localhost certificate to the System chain.";
-    sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain localhost.crt;
-    rm localhost.crt;
+if [ "$NO_PULL" == "true" ]; then
+    ./up.sh;
 else
-    echo "Copying the localhost certificate to the ca-certificates directory.";
-    cp localhost.crt /usr/local/share/ca-certificates/infraxys-localhost.crt;
-    update-ca-certificates;
+    docker-compose -f stack.yml pull;
+    ./up.sh;
+
+    docker pull quay.io/jeroenmanders/infraxys-runner:$VERSION
+    docker pull quay.io/jeroenmanders/infraxys-provisioning-server:ubuntu-full-18.04-latest;
+fi;
+
+if [ -f "/infraxys/certs/localhost.crt" ]; then
+    echo "Retrieving localhost certificate.";
+    docker cp infraxys-developer-web:/infraxys/certs/localhost.crt .;
+
+    if [ "$(uname -s)" == "Darwin" ]; then
+        echo "Add localhost certificate to the System chain.";
+        sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain localhost.crt;
+        rm localhost.crt;
+    else
+        echo "Copying the localhost certificate to the ca-certificates directory.";
+        cp localhost.crt /usr/local/share/ca-certificates/infraxys-localhost.crt;
+        update-ca-certificates;
+    fi;
 fi;
