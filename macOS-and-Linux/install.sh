@@ -44,6 +44,7 @@ fi;
 echo "Launching installer now";
 
 if [ "$NO_PULL" != "true" ]; then
+    echo "Pulling latest version of $IMAGE.";
     docker pull $IMAGE;
 fi;
 
@@ -55,6 +56,7 @@ sudo docker run -it --rm \
     -e "INFRAXYS_USERNAME=$INFRAXYS_USERNAME" \
     -e "INFRAXYS_FULLNAME=$INFRAXYS_FULLNAME" \
     -e "CONTAINER_PREFIX=$CONTAINER_PREFIX" \
+    -e "NETWORK_PREFIX=$NETWORK_PREFIX" \
     -e "TOMCAT_IMAGE_VERSION=$TOMCAT_IMAGE_VERSION" \
     -v "$INFRAXYS_ROOT_DIR":/infraxys-root:rw \
     $IMAGE
