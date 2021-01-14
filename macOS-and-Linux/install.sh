@@ -76,6 +76,7 @@ else
     docker-compose -f stack.yml pull;
     ./up.sh;
 
+    echo "Pulling the latest provisioning container.";
     docker pull quay.io/jeroenmanders/infraxys-provisioning-server:ubuntu-full-18.04-latest;
 fi;
 
